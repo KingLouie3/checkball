@@ -10,7 +10,7 @@ import * as Chart from 'chart.js'
 })
 export class AppComponent  {
   search: any;
-  stats = []
+  stats;
   chart  =  [];
   constructor(public _api: BasketballApiService)  {}
   title = 'angular8chartjs';
@@ -18,9 +18,28 @@ export class AppComponent  {
   canvas: any;
   ctx: any;
    values =  [5,1, 11];
-
+  players = []
   
 
+  getPlayers()  {
+    this._api.searchPlayers()
+    .subscribe(
+      response =>  {
+      console.log(response.data);
+      this.players = response.data
+      console.log(this.players)
+      }
+    )
+  }
+  getStats(playerId: any){
+    this._api.getPlayerStats(playerId)
+    .subscribe(
+      response =>  {
+        this.stats =  response.data[0]
+        console.log(this.stats.data[0])
+      }
+    )
+  }
 
 
 
