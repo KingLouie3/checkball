@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class BasketballApiService {
-  query: any = "young";
+  query: any = "";
   lebronStatsUrl: any =
     "https://www.balldontlie.io/api/v1/season_averages?season=2019&player_ids[]=237";
   searchPlayerUrl: any = "https://www.balldontlie.io/api/v1/players?search=";

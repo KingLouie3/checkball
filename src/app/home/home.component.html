@@ -1,1 +1,11 @@
-<canvas id="myChart" width="400" height="400">{{pts}}</canvas>
+<div class="container">
+    <input class="searchInput" type="text"  placeholder="Search here...." [(ngModel)]="input" (keyup)="findPlayer(input)"/>
+    <div class="suggestions" >
+        <div (click)="getPlayer(suggestion.id)" *ngFor="let suggestion of suggestions">
+            {{suggestion.first_name}},  {{suggestion.last_name}}, {{suggestion.id}}
+
+        </div>
+    </div>
+        <canvas id="myChart" width="400" height="400"></canvas>
+
+</div>

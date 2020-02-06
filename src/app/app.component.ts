@@ -18,7 +18,6 @@ export class AppComponent  {
   canvas: any;
   ctx: any;
    values =  [5,1, 11];
-  players = []
   
 
   getPlayers()  {
