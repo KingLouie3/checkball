@@ -1,11 +1,65 @@
 <div class="container">
-    <input class="searchInput" type="text"  placeholder="Search here...." [(ngModel)]="input" (keyup)="findPlayer(input)"/>
+    <input class="search-bar" type="text"  placeholder="Search here...." [(ngModel)]="input" (keyup)="findPlayer(input)" />
     <div class="suggestions" >
-        <div (click)="getPlayer(suggestion.id)" *ngFor="let suggestion of suggestions">
+        <div (click)="getPlayer(suggestion.id)" *ngFor="let suggestion of suggestions"  >
             {{suggestion.first_name}},  {{suggestion.last_name}}, {{suggestion.id}}
 
         </div>
     </div>
-        <canvas id="myChart" width="400" height="400"></canvas>
-
 </div>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">Games Played</th>
+            <th>Minutes</th>
+            <th>Points</th>
+            <th>Assists</th>
+            <th>OREB</th>
+            <th>DREB</th>
+            <th>FGM</th>
+            <th>FGA</th>
+            <th>FG%</th>
+            <th>FTM</th>
+            <th>FTA</th>
+            <th>FT%</th>
+            <th>3PM</th>
+            <th>3PA</th>
+            <th>3P%</th>
+            <th>Steals</th>
+            <th>Turnovers</th>
+            <th>Fouls</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-center">{{this.games_played}}</td>
+            <td>{{this.min}}</td>
+            <td>{{this.ppg}}</td>
+            <td  class="text-center">{{this.ast}}</td>
+            <td>{{this.oreb}}</td>
+            <td>{{this.reb}}</td>
+            <td>{{this.fgm}}</td>
+            <td>{{this.fga}}</td>
+            <td>{{this.fg_pct}}</td>
+            <td>{{this.ftm}}</td>
+            <td>{{this.fta}}</td>
+            <td>{{this.ft_pct}}</td>
+            <td>{{this.fg3m}}</td>
+            <td>{{this.fg3a}}</td>
+            <td>{{this.fg3_pct}}</td>
+            <td>{{this.stl}}</td>
+            <td class="text-center">{{this.turnover}}</td>
+            <td>{{this.pf}}</td>
+
+
+
+        </tr>
+        
+        
+    </tbody>
+</table>
+
+        <canvas id="myChart" width="1420" height="400"></canvas>

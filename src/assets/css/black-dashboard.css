@@ -1062,7 +1062,11 @@ pre {
   .table td {
     padding: 1rem;
     vertical-align: top;
-    border-top: 0.0625rem solid #e3e3e3; }
+    border-top: 0.0625rem solid #e3e3e3;
+    border-left: 0.0625rem solid #e3e3e3;
+    border-right: 0.0625rem solid #e3e3e3;
+    border-bottom:  0.0625rem solid #e3e3e3;
+   }
   .table thead th {
     vertical-align: bottom;
     border-bottom: 0.125rem solid #e3e3e3; }

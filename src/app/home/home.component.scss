@@ -1,27 +1,43 @@
 .container {
     width: 60%;
     margin: 100px auto;
-    background: #333;
     overflow: hidden;
 }
 
 .container input {
     width: 100%;
-    background: transparent;
     border: 0;
+    font: inherit;
     font-size: 36px;
     color: #fff;
+    background: none;
+    text-align: left;
+}
+
+.btn-shift{
+    text-align: right;
+    
+}
+
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
 .suggestions {
-    border-top: 2px solid ;
+    border: 2px solid ;
+    background: transparent;
+    background-color: #1e1e2f
 }
 
 .suggestions > div  {
     padding: 15px;
     font-size: 26px;
     color: #fff;
-    border-top: 1px solid #666;
+    border: 1px solid #666;
     cursor: pointer;
 
 }
