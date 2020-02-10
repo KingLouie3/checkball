@@ -2,6 +2,8 @@
     width: 60%;
     margin: 100px auto;
     overflow: hidden;
+    color: white;
+    border: dotted;
 }
 
 .container input {
@@ -12,6 +14,7 @@
     color: #fff;
     background: none;
     text-align: left;
+
 }
 
 .btn-shift{
@@ -52,4 +55,3 @@ button:focus {
     max-width: 300px;
     margin: auto;
 }
-

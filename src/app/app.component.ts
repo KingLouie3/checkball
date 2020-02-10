@@ -20,25 +20,25 @@ export class AppComponent  {
    values =  [5,1, 11];
   
 
-  getPlayers()  {
-    this._api.searchPlayers()
-    .subscribe(
-      response =>  {
-      console.log(response.data);
-      this.players = response.data
-      console.log(this.players)
-      }
-    )
-  }
-  getStats(playerId: any){
-    this._api.getPlayerStats(playerId)
-    .subscribe(
-      response =>  {
-        this.stats =  response.data[0]
-        console.log(this.stats.data[0])
-      }
-    )
-  }
+  // getPlayers()  {
+  //   this._api.searchPlayers()
+  //   .subscribe(
+  //     response =>  {
+  //     console.log(response.data);
+  //     this.players = response.data
+  //     console.log(this.players)
+  //     }
+  //   )
+  // }
+  // getStats(playerId: any){
+  //   this._api.getPlayerStats(playerId)
+  //   .subscribe(
+  //     response =>  {
+  //       this.stats =  response.data[0]
+  //       console.log(this.stats.data[0])
+  //     }
+  //   )
+  // }
 
 
 

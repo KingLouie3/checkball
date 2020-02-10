@@ -1,7 +1,6 @@
 import { BasketballApiService } from "./../basketball-api.service";
 import { FormsModule } from "@angular/forms";
 import { Datum } from "src/stats";
-
 import {
   Component,
   OnInit,
@@ -11,22 +10,16 @@ import {
 } from "@angular/core";
 import * as Chart from "chart.js";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent {
-  show: boolean = true;
+  showGraph: boolean;
   canvas: any;
   ctx: any;
-  players = [
-    { name: "Lebron" },
-    { name: "Giannis" },
-    { name: "Steph" },
-    { name: "Luka" }
-  ];
-
   input;
   suggestions = [];
   showStats: boolean;
@@ -53,12 +46,12 @@ export class HomeComponent {
   first_name;
   last_name;
 
-  constructor(public _api: BasketballApiService, private _http: HttpClient) {}
+  constructor(public _api: BasketballApiService, private _http: HttpClient, private route: Router) {}
 
   findPlayer(player) {
     if (player.length > 3) {
       this._http
-        .get(
+        .get<any>(
           `https://www.balldontlie.io/api/v1/players?season[]=2019&search=${player}`
         )
         .subscribe(response => {
@@ -76,7 +69,7 @@ export class HomeComponent {
 
   getPlayer(id) {
     this._http
-      .get(
+      .get<any>(
         `https://www.balldontlie.io/api/v1/season_averages?season=2019&player_ids[]=${id}`
       )
       .subscribe(response => {
@@ -100,12 +93,16 @@ export class HomeComponent {
         this.stl = response.data[0].stl;
         this.pf = response.data[0].pf;
         this.min = response.data[0].min;
-
         this.turnover = response.data[0].turnover;
+
         console.log("points", this.ppg);
         console.log("games", this.games_played);
+        
+      });
+  }
 
-        this.canvas = document.getElementById("myChart");
+  ngonInit() {
+    this.canvas = document.getElementById("myChart");
         this.ctx = this.canvas.getContext("2d");
         let myChart = new Chart(this.ctx, {
           type: "line",
@@ -126,15 +123,11 @@ export class HomeComponent {
           },
           options: {
             responsive: false,
-            display: true
           }
         });
-      });
+  }
+  seeGraph() {
+    this.route.navigate(['graph']);
   }
 
-  clearSearch(input) {
-    if (input == "") {
-      return (this.show = false);
-    }
-  }
 }
