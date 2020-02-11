@@ -38,7 +38,7 @@ export class BasketballApiService {
 
  
   findPlayer(player) {
-    if (player.length >= 3) {
+    if (player.length >= 2) {
       this._http
         .get<any>(
           `https://www.balldontlie.io/api/v1/players?season[]=2019&search=${player}`
@@ -88,6 +88,8 @@ export class BasketballApiService {
 
         console.log("points", this.ppg);
         console.log("games", this.games_played);
+
+        this.suggestions = null;
         
       });
   }

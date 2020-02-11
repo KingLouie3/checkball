@@ -9,12 +9,14 @@ import * as Chart from "chart.js";
   styleUrls: ["./graph.component.scss"]
 })
 export class GraphComponent implements OnInit {
-constructor(public _api: BasketballApiService) {}
+constructor(public _api: BasketballApiService, private route: Router) {}
 
 canvas: any;
 ctx: any;
 
-
+seeStats() {
+  this.route.navigate(['']);
+}
   
 
   ngOnInit() {
