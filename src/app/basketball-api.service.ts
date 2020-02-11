@@ -46,13 +46,15 @@ export class BasketballApiService {
         .subscribe(response => {
           this.first_name =  response.data.first_name;
           this.suggestions = response.data.filter(player => {
-            
-            return player.id <= 400;
-          });
-          console.log('lets see', response);
-        });
+            return player.height_feet > 1 ;
+          });          console.log('lets see', response);
+        })
 
       console.log(player);
+    }
+
+    if(player == '') {
+      this.suggestions = null;
     }
   }
 

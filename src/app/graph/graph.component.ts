@@ -29,10 +29,11 @@ ctx: any;
             label: "Season Averages",
             data: [this._api.ppg, this._api.reb, this._api.ast],
             backgroundColor: [
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)"
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(255, 206, 86, 0.2)"
             ],
+            
             borderWidth: 1
           }
         ]

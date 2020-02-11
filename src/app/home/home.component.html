@@ -1,5 +1,5 @@
 <div class="container">
-  <input class="search-bar" type="text" placeholder="Search Player Here..." [(ngModel)]="input" (keyup)="_api.findPlayer(input)" />
+  <input class="search-bar" type="text" placeholder="Search Player Here..." [(ngModel)]="input" (keyup)="_api.findPlayer(input)"  />
   <div class="suggestions">
     <div (click)="_api.getPlayer(suggestion.id)" *ngFor="let suggestion of _api.suggestions">
       {{suggestion.first_name}}, {{suggestion.last_name}}

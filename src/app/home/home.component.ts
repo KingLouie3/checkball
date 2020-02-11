@@ -49,22 +49,20 @@ export class HomeComponent {
   constructor(public _api: BasketballApiService, private _http: HttpClient, private route: Router) {}
 
   findPlayer(player) {
-    if (player.length > 3) {
+    if (player.length >= 3) {
       this._http
         .get<any>(
           `https://www.balldontlie.io/api/v1/players?season[]=2019&search=${player}`
         )
         .subscribe(response => {
           this.first_name =  response.data.first_name;
-          this.suggestions = response.data.filter(player => {
-            
-            return player.id <= 400;
-          });
+          
           console.log('lets see', response);
         });
 
       console.log(player);
     }
+    
   }
 
   getPlayer(id) {
