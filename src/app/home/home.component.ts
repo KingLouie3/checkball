@@ -47,7 +47,7 @@ export class HomeComponent {
   last_name;
 
   constructor(public _api: BasketballApiService, private _http: HttpClient, private route: Router) {}
-
+  //I'm using these calls on the BasketballApiService. Edit There!!!
   findPlayer(player) {
     if (player.length >= 3) {
       this._http

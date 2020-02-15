@@ -23,7 +23,7 @@ seeStats() {
     this.canvas = document.getElementById("myChart");
     this.ctx = this.canvas.getContext("2d");
     let myChart = new Chart(this.ctx, {
-      type: "polarArea",
+      type: "radar",
       data: {
         labels: ["Points", "Rebounds", "Assists"],
         datasets: [

@@ -7,7 +7,10 @@
     </div>
   </div>
 </div>
+<div class="player-name" *ngIf="_api.seeName">
+  {{_api.first_name}} {{_api.last_name}} 
 
+</div>
 
 
 <table class="table"  *ngIf="_api.showStats">

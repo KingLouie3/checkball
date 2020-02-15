@@ -57,3 +57,11 @@ button:focus {
     padding-top: 15px;
 }
 
+.player-name {
+    width: 140px;
+    margin: auto;
+    font-size: 20px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

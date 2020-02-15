@@ -10,7 +10,10 @@ export class BasketballApiService {
   ctx: any;
   input;
   suggestions = [];
+  //ShowSats is true when testing, to  save time.
   showStats: boolean = false;
+  seeName: boolean = false;
+  //All stats need to be put into an object, and then pushed into an array.
   ppg;
   reb;
   ast;
@@ -33,6 +36,8 @@ export class BasketballApiService {
   turnover;
   first_name;
   last_name;
+  
+  //All stats need to be put into an object, and then pushed into an array.
 
   constructor(public _http: HttpClient) {}
 
@@ -45,6 +50,8 @@ export class BasketballApiService {
         )
         .subscribe(response => {
           this.first_name =  response.data.first_name;
+          this.first_name  = response.data[0].first_name;
+          this.last_name = response.data[0].last_name;
           this.suggestions = response.data.filter(player => {
             return player.height_feet > 1 ;
           });          console.log('lets see', response);
@@ -54,6 +61,8 @@ export class BasketballApiService {
     }
 
     if(player == '') {
+      this.seeName = false;
+      this.showStats = false;
       this.suggestions = null;
     }
   }
@@ -66,6 +75,7 @@ export class BasketballApiService {
       .subscribe(response => {
         console.log(response);
         this.showStats = true;
+        this.seeName = true;
         this.ppg = response.data[0].pts;
         this.reb = response.data[0].reb;
         this.ast = response.data[0].ast;
