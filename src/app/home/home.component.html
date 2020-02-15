@@ -1,19 +1,23 @@
 <div class="container">
-  <input class="search-bar" type="text" placeholder="Search Player Here..." [(ngModel)]="input" (keyup)="_api.findPlayer(input)"  />
+  <input class="search-bar" type="text" placeholder="Search Player Here..." [(ngModel)]="input"
+    (keyup)="_api.findPlayer(input)" />
   <div class="suggestions">
-    <div (click)="_api.getPlayer(suggestion.id,suggestion.first_name,suggestion.last_name)" *ngFor="let suggestion of _api.suggestions">
-     {{suggestion.first_name}}, {{suggestion.last_name}}
-      
+    <div (click)="_api.getPlayer(suggestion.id,suggestion.first_name,suggestion.last_name)"
+      *ngFor="let suggestion of _api.suggestions">
+      {{suggestion.first_name}}, {{suggestion.last_name}}
+
     </div>
   </div>
 </div>
-<div class="player-name" *ngIf="_api.seeName">
+<!-- <div class="player-name" *ngIf="_api.seeName">
   {{_api.first_name}} {{_api.last_name}} 
 
-</div>
+</div> -->
 
-<div class="box-score" >
-  <table class="table"  *ngFor="let player of _api.players">
+<div *ngFor="let player of _api.players">
+  {{player.first_name}} {{player.last_name}}
+
+  <table class="table">
     <thead>
       <tr>
         <th class="text-center">Games Played</th>
@@ -39,32 +43,32 @@
     <tbody>
       <tr>
         <td class="text-center">{{player.games_played}}</td>
-        <td>{{_api.player.min}}</td>
-        <td>{{_api.player.ppg}}</td>
-        <td class="text-center">{{_api.player.ast}}</td>
-        <td>{{_api.player.oreb}}</td>
-        <td>{{_api.player.reb}}</td>
-        <td>{{_api.player.fgm}}</td>
-        <td>{{_api.player.fga}}</td>
-        <td>{{_api.player.fg_pct}}</td>
-        <td>{{_api.player.ftm}}</td>
-        <td>{{_api.player.fta}}</td>
-        <td>{{_api.player.ft_pct}}</td>
-        <td>{{_api.player.fg3m}}</td>
-        <td>{{_api.player.fg3a}}</td>
-        <td>{{_api.player.fg3_pct}}</td>
-        <td>{{_api.player.stl}}</td>
-        <td class="text-center">{{_api.player.turnover}}</td>
-        <td>{{_api.player.pf}}</td>
-  
-  
-  
+        <td>{{player.min}}</td>
+        <td>{{player.pts}}</td>
+        <td class="text-center">{{player.ast}}</td>
+        <td>{{player.oreb}}</td>
+        <td>{{player.reb}}</td>
+        <td>{{player.fgm}}</td>
+        <td>{{player.fga}}</td>
+        <td>{{player.fg_pct}}</td>
+        <td>{{player.ftm}}</td>
+        <td>{{player.fta}}</td>
+        <td>{{player.ft_pct}}</td>
+        <td>{{player.fg3m}}</td>
+        <td>{{player.fg3a}}</td>
+        <td>{{player.fg3_pct}}</td>
+        <td>{{player.stl}}</td>
+        <td class="text-center">{{player.turnover}}</td>
+        <td>{{player.pf}}</td>
+
+
+
       </tr>
-  
-  
+
+
     </tbody>
   </table>
+
 </div>
-
-<button class="btn btn-success animation-on-hover" type="button" *ngIf="_api.showStats"  (click)="seeGraph()">See Graph</button>
-
+<button class="btn btn-success animation-on-hover" type="button" *ngIf="_api.showStats" (click)="seeGraph()">See
+  Graph</button>

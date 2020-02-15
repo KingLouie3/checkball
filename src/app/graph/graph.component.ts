@@ -14,11 +14,14 @@ export class GraphComponent implements OnInit {
     responsive: true
   };
 
-  chartData = [
-    { data: [330, 600, 260, 700], label: 'Account A' },
-    { data: [120, 455, 100, 340], label: 'Account B' },
-    { data: [45, 67, 800, 500], label: 'Account C' }
-  ];
+  chartData  = [];
+  //  = 
+  
+  // [
+  //   { data: [this._api.players[0].pts], label: 'Giannis'},
+  //   { data: [120, 455, 100, 340], label: 'Account B' },
+  //   { data: [45, 67, 800, 500], label: 'Account C' }
+  // ];
 
   chartLabels = ['January', 'February', 'Mars', 'April'];
 
@@ -36,6 +39,8 @@ seeStats() {
   
 
   ngOnInit() {
+    console.log("Data", this.chartData)
+    console.log('test', this._api.players[0].pts)
     
     }
 

@@ -1,3 +1,4 @@
+import { GraphComponent } from './../graph/graph.component';
 import { BasketballApiService } from "./../basketball-api.service";
 import { FormsModule } from "@angular/forms";
 import { Datum } from "src/stats";
@@ -100,31 +101,10 @@ export class HomeComponent {
   }
 
   ngonInit() {
-    this.canvas = document.getElementById("myChart");
-        this.ctx = this.canvas.getContext("2d");
-        let myChart = new Chart(this.ctx, {
-          type: "line",
-          data: {
-            labels: ["Points", "Rebounds", "Assists"],
-            datasets: [
-              {
-                label: "# of Votes",
-                data: [this.ppg, this.reb, this.ast],
-                backgroundColor: [
-                  "rgba(255, 99, 132, 1)",
-                  "rgba(54, 162, 235, 1)",
-                  "rgba(255, 206, 86, 1)"
-                ],
-                borderWidth: 1
-              }
-            ]
-          },
-          options: {
-            responsive: false,
-          }
-        });
+    
   }
   seeGraph() {
+
     this.route.navigate(['graph']);
   }
 

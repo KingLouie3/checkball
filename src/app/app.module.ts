@@ -22,7 +22,7 @@ import { GraphComponent } from './graph/graph.component';
     FormsModule,
     ChartsModule
   ],
-  providers: [BasketballApiService],
+  providers: [BasketballApiService, GraphComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
