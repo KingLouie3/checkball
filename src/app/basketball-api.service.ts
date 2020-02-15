@@ -56,8 +56,13 @@ export class BasketballApiService {
 
           this.last_name = response.data[0].last_name;
           this.suggestions = response.data.filter(player => {
-              
-                return player.height_feet >1;
+            if(player.id == 666786){
+              return player.id = 666786
+            }
+            else if(player.id == 666969){
+              return player.id = 666969
+            }
+            return player.height_feet >1  
                      
           });          console.log('lets see', response);
         })
