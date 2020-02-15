@@ -1,7 +1,11 @@
-
-
-<div class="chart-area"><canvas id="myChart" width="1420" height="400"></canvas>
-</div>
-
-<button type="button" class="btn btn-primary" (click)="seeStats()" >See Season Stats</button>
-
+<div style="width: 90%;">
+    <canvas
+        baseChart
+        [chartType]="'line'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartClick)="onChartClick($event)">
+    </canvas>
+  </div>

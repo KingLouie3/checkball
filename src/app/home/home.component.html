@@ -1,9 +1,9 @@
 <div class="container">
   <input class="search-bar" type="text" placeholder="Search Player Here..." [(ngModel)]="input" (keyup)="_api.findPlayer(input)"  />
   <div class="suggestions">
-    <div (click)="_api.getPlayer(suggestion.id)" *ngFor="let suggestion of _api.suggestions">
-      {{suggestion.first_name}}, {{suggestion.last_name}}
-
+    <div (click)="_api.getPlayer(suggestion.id,suggestion.first_name,suggestion.last_name)" *ngFor="let suggestion of _api.suggestions">
+     {{suggestion.first_name}}, {{suggestion.last_name}}
+      
     </div>
   </div>
 </div>
@@ -12,57 +12,59 @@
 
 </div>
 
+<div class="box-score" >
+  <table class="table"  *ngFor="let player of _api.players">
+    <thead>
+      <tr>
+        <th class="text-center">Games Played</th>
+        <th>Minutes</th>
+        <th>Points</th>
+        <th>Assists</th>
+        <th>OREB</th>
+        <th>DREB</th>
+        <th>FGM</th>
+        <th>FGA</th>
+        <th>FG%</th>
+        <th>FTM</th>
+        <th>FTA</th>
+        <th>FT%</th>
+        <th>3PM</th>
+        <th>3PA</th>
+        <th>3P%</th>
+        <th>Steals</th>
+        <th>Turnovers</th>
+        <th>Fouls</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">{{player.games_played}}</td>
+        <td>{{_api.player.min}}</td>
+        <td>{{_api.player.ppg}}</td>
+        <td class="text-center">{{_api.player.ast}}</td>
+        <td>{{_api.player.oreb}}</td>
+        <td>{{_api.player.reb}}</td>
+        <td>{{_api.player.fgm}}</td>
+        <td>{{_api.player.fga}}</td>
+        <td>{{_api.player.fg_pct}}</td>
+        <td>{{_api.player.ftm}}</td>
+        <td>{{_api.player.fta}}</td>
+        <td>{{_api.player.ft_pct}}</td>
+        <td>{{_api.player.fg3m}}</td>
+        <td>{{_api.player.fg3a}}</td>
+        <td>{{_api.player.fg3_pct}}</td>
+        <td>{{_api.player.stl}}</td>
+        <td class="text-center">{{_api.player.turnover}}</td>
+        <td>{{_api.player.pf}}</td>
+  
+  
+  
+      </tr>
+  
+  
+    </tbody>
+  </table>
+</div>
 
-<table class="table"  *ngIf="_api.showStats">
-  <thead>
-    <tr>
-      <th class="text-center">Games Played</th>
-      <th>Minutes</th>
-      <th>Points</th>
-      <th>Assists</th>
-      <th>OREB</th>
-      <th>DREB</th>
-      <th>FGM</th>
-      <th>FGA</th>
-      <th>FG%</th>
-      <th>FTM</th>
-      <th>FTA</th>
-      <th>FT%</th>
-      <th>3PM</th>
-      <th>3PA</th>
-      <th>3P%</th>
-      <th>Steals</th>
-      <th>Turnovers</th>
-      <th>Fouls</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="text-center">{{_api.games_played}}</td>
-      <td>{{_api.min}}</td>
-      <td>{{_api.ppg}}</td>
-      <td class="text-center">{{_api.ast}}</td>
-      <td>{{_api.oreb}}</td>
-      <td>{{_api.reb}}</td>
-      <td>{{_api.fgm}}</td>
-      <td>{{_api.fga}}</td>
-      <td>{{_api.fg_pct}}</td>
-      <td>{{_api.ftm}}</td>
-      <td>{{_api.fta}}</td>
-      <td>{{_api.ft_pct}}</td>
-      <td>{{_api.fg3m}}</td>
-      <td>{{_api.fg3a}}</td>
-      <td>{{_api.fg3_pct}}</td>
-      <td>{{_api.stl}}</td>
-      <td class="text-center">{{_api.turnover}}</td>
-      <td>{{_api.pf}}</td>
-
-
-
-    </tr>
-
-
-  </tbody>
-</table>
 <button class="btn btn-success animation-on-hover" type="button" *ngIf="_api.showStats"  (click)="seeGraph()">See Graph</button>
 
