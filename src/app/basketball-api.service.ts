@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { element } from 'protractor';
 
 @Injectable({
   providedIn: "root"
@@ -93,36 +94,19 @@ export class BasketballApiService {
         this.players.push(response.data[0]);
         console.log('players',this.players);
 
-        // this.ppg = response.data[0].pts,
-        // this.reb = response.data[0].reb;
-        // this.ast = response.data[0].ast;
-        // this.games_played = response.data[0].games_played;
-        // this.oreb = response.data[0].oreb;
-        // this.reb = response.data[0].dreb;
-        // this.fgm = response.data[0].fgm;
-        // this.fga = response.data[0].fga;
-        // this.fg_pct = response.data[0].fg_pct;
-        // this.fg3m = response.data[0].fg3m;
-        // this.fg3a = response.data[0].fg3a;
-        // this.fg3_pct = response.data[0].fg3_pct;
-        // this.ftm = response.data[0].ftm;
-        // this.fta = response.data[0].fta;
-        // this.ft_pct = response.data[0].ft_pct;
-        // this.stl = response.data[0].stl;
-        // this.pf = response.data[0].pf;
-        // this.min = response.data[0].min;
-        // this.turnover = response.data[0].turnover;
-
-       
+        
        
         
       });
        //This clears the suggestion and search box;
        this.suggestions = null;
        this.input = '';
-       
-       
+      }
 
-  }
+      removePlayer(clickedIndex) {
+       this.players = this.players.filter((element, index, array)=>{
+          return index !==  clickedIndex;
+       });
+          }
 
 }

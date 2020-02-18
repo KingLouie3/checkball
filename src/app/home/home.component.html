@@ -14,8 +14,15 @@
 
 </div> -->
 
-<div *ngFor="let player of _api.players">
-  {{player.first_name}} {{player.last_name}}
+<div *ngFor="let player of _api.players; let i  = index">
+  <div class="player-name">  
+    {{player.first_name}} {{player.last_name}}
+
+    </div>
+    <button type="button" class="btn btn-danger" (click)="_api.removePlayer(i)">Remove Player</button>
+
+
+
 
   <table class="table">
     <thead>

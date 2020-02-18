@@ -20,7 +20,7 @@ export class GraphComponent implements OnInit {
    
   ];
 
-  chartLabels = ['January', 'February', 'Mars', 'April'];
+  chartLabels = ['Points', 'Rebounds', 'Assists', 'Steals'];
 
   onChartClick(event) {
     console.log(event);

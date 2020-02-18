@@ -59,9 +59,14 @@ button:focus {
 
 .player-name {
     width: 140px;
-    margin: auto;
+    margin-right: auto;
     font-size: 20px;
     background: -webkit-linear-gradient(#eee, #333);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.btn-danger {
+    display: block;
+    max-width: 300px;
+    margin-left: auto;
 }
