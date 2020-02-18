@@ -2,10 +2,12 @@
     <canvas
         baseChart
         [chartType]="'bar'"
-        [datasets]="chartData"
+        [datasets]="_api.chartData"
         [labels]="chartLabels"
         [options]="chartOptions"
         [legend]="true"
         (chartClick)="onChartClick($event)">
     </canvas>
   </div>
+
+  <button class="btn btn-success animation-on-hover" type="button" *ngIf="_api.showStats" (click)="seeStats()">See Season Stats</button>

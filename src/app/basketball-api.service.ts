@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { element } from 'protractor';
 
 @Injectable({
   providedIn: "root"
@@ -38,6 +37,8 @@ export class BasketballApiService {
   turnover;
   first_name;
   last_name;
+  kobeBestSeason;
+  chartData  =  [];
   
   //All stats need to be put into an object, and then pushed into an array.
 
@@ -89,24 +90,39 @@ export class BasketballApiService {
         this.seeName = true;
         this.first_name  =  first_name;
         this.last_name  = last_name;
+        const result =  response.data[0];
         response.data[0].first_name = first_name
         response.data[0].last_name = last_name;
         this.players.push(response.data[0]);
         console.log('players',this.players);
 
+          
+          const Data = [
+            ...this.chartData, 
+            { data: [ 
+                result.pts, 
+                result.reb, 
+                result.ast, 
+                result.stl
+              ], 
+              label: response.data[0].first_name 
+          }]
+          console.log(Data)
+          this.chartData = Data;
+      
         
        
         
       });
        //This clears the suggestion and search box;
-       this.suggestions = null;
-       this.input = '';
-      }
+      this.suggestions = null;
+      this.input = '';
+  }
 
-      removePlayer(clickedIndex) {
-       this.players = this.players.filter((element, index, array)=>{
-          return index !==  clickedIndex;
-       });
-          }
+  removePlayer(clickedIndex) {
+    this.players = this.players.filter((element, index, array)=>{
+      return index !==  clickedIndex;
+    });
+  }
 
 }

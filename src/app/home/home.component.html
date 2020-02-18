@@ -1,8 +1,9 @@
 <div class="container">
   <input class="search-bar" type="text" placeholder="Search Player Here..." [(ngModel)]="input"
     (keyup)="_api.findPlayer(input)" />
+    <!-- <button (click)="test()">Test</button> -->
   <div class="suggestions">
-    <div (click)="_api.getPlayer(suggestion.id,suggestion.first_name,suggestion.last_name)"
+    <div (click)="_api.getPlayer( suggestion.id, suggestion.first_name,suggestion.last_name)"
       *ngFor="let suggestion of _api.suggestions">
       {{suggestion.first_name}}, {{suggestion.last_name}}
 
@@ -14,12 +15,63 @@
 
 </div> -->
 
+    <!-- <thead>
+      <tr>
+        <th class="text-center">Games Played</th>
+        <th>Minutes</th>
+        <th>Points</th>
+        <th>Assists</th>
+        <th>OREB</th>
+        <th>DREB</th>
+        <th>FGM</th>
+        <th>FGA</th>
+        <th>FG%</th>
+        <th>FTM</th>
+        <th>FTA</th>
+        <th>FT%</th>
+        <th>3PM</th>
+        <th>3PA</th>
+        <th>3P%</th>
+        <th>Steals</th>
+        <th>Turnovers</th>
+        <th>Fouls</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">{{player.games_played}}</td>
+        <td>{{player.min}}</td>
+        <td>{{player.pts}}</td>
+         <td class="text-center">{{player.ast}}</td>
+        <td>{{player.oreb}}</td>
+        <td>{{player.reb}}</td>
+        <td>{{player.fgm}}</td>
+        <td>{{player.fga}}</td>
+        <td>{{player.fg_pct}}</td>
+        <td>{{player.ftm}}</td>
+        <td>{{player.fta}}</td>
+        <td>{{player.ft_pct}}</td>
+        <td>{{player.fg3m}}</td>
+        <td>{{player.fg3a}}</td>
+        <td>{{player.fg3_pct}}</td>
+        <td>{{player.stl}}</td>
+        <td class="text-center">{{player.turnover}}</td>
+        <td>{{player.pf}}</td>
+  
+  
+  
+      </tr>
+  
+  
+    </tbody>
+  </table> -->
+
 <div *ngFor="let player of _api.players; let i  = index">
-  <div class="player-name">  
+  <div class="player-name">
+
     {{player.first_name}} {{player.last_name}}
 
     </div>
-    <button type="button" class="btn btn-danger" (click)="_api.removePlayer(i)">Remove Player</button>
 
 
 
@@ -75,7 +127,10 @@
 
     </tbody>
   </table>
+  <button type="button" class="btn btn-danger btn-sm" (click)="_api.removePlayer(i)">Remove Player</button>
 
 </div>
-<button class="btn btn-success animation-on-hover" type="button" *ngIf="_api.showStats" (click)="seeGraph()">See
-  Graph</button>
+<button class="btn btn-success animation-on-hover" type="button" *ngIf="_api.showStats" (click)="seeGraph()">
+  See
+Graph</button>
+

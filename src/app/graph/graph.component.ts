@@ -14,11 +14,7 @@ export class GraphComponent implements OnInit {
     responsive: true
   };
 
-  chartData  = 
-  
-  [
-   
-  ];
+  chartData  = [];
 
   chartLabels = ['Points', 'Rebounds', 'Assists', 'Steals'];
 
@@ -38,15 +34,15 @@ seeStats() {
   ngOnInit() {
     this._api.players.forEach(element => {
       console.log('elements',element);
-      const Data = {data: [element.pts, element.reb, element.ast, element.stl], label: element.first_name}
-      this.chartData.unshift(Data);
+      const Data = [{ data: [element.pts, element.reb, element.ast, element.stl], label: element.first_name}]
+      this.chartData = Data
     });
     // const Data = {data:[ this._api.players.pts], label: 'Test'}
     // this.chartData.push(Data)
     console.log("ChartData", this.chartData)
     console.log('graphComponentTest', this._api.players)
     
-    }
+  }
 
 
   
