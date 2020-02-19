@@ -1,5 +1,5 @@
 <div class="container">
-  <input class="search-bar" type="text" placeholder="Search Player Here..." [(ngModel)]="input"
+  <input class="search-bar" type="text" placeholder="Search Player" [(ngModel)]="input"
     (keyup)="_api.findPlayer(input)" />
     <!-- <button (click)="test()">Test</button> -->
   <div class="suggestions">
@@ -130,7 +130,8 @@
   <button type="button" class="btn btn-danger btn-sm" (click)="_api.removePlayer(i)">Remove Player</button>
 
 </div>
-<button class="btn btn-success animation-on-hover" type="button" *ngIf="_api.showStats" (click)="seeGraph()">
+<!-- <button class="btn btn-success animation-on-hover" type="button" *ngIf="_api.showStats" (click)="seeGraph()">
   See
-Graph</button>
+Graph</button> -->
+<app-graph *ngIf="_api.showGraph"></app-graph>
 

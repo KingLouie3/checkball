@@ -1,4 +1,5 @@
-import { Injectable } from "@angular/core";
+import { Router } from '@angular/router';
+import { Injectable, RootRenderer } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
@@ -15,34 +16,14 @@ export class BasketballApiService {
   seeName: boolean = false;
   //All stats need to be put into an object, and then pushed into an array.
   players:  any = [];
-  ppg;
-  reb;
-  ast;
-  games_played;
-  min;
-  fgm;
-  fga;
-  fg3m;
-  fg3a;
-  ftm;
-  fta;
-  oreb;
-  dreb;
-  stl;
-  blk;
-  pf;
-  fg_pct;
-  fg3_pct;
-  ft_pct;
-  turnover;
-  first_name;
-  last_name;
+  currentYear = 2019;
   kobeBestSeason;
   chartData  =  [];
-  
+  first_name;
+  last_name;
   //All stats need to be put into an object, and then pushed into an array.
 
-  constructor(public _http: HttpClient) {}
+  constructor(public _http: HttpClient, public route:  Router) {}
 
   
  
@@ -80,9 +61,10 @@ export class BasketballApiService {
   }
 
   getPlayer(id,first_name, last_name) {
+    let season = this.currentYear
     this._http
       .get<any>(
-        `https://www.balldontlie.io/api/v1/season_averages?season=2019&player_ids[]=${id}`
+        `https://www.balldontlie.io/api/v1/season_averages?season=${season}&player_ids[]=${id}`
       )
       .subscribe(response => {
         console.log(response);
@@ -95,7 +77,7 @@ export class BasketballApiService {
         response.data[0].last_name = last_name;
         this.players.push(response.data[0]);
         console.log('players',this.players);
-
+        [...this.chartData, ]
           
           const Data = [
             ...this.chartData, 
@@ -107,22 +89,53 @@ export class BasketballApiService {
               ], 
               label: response.data[0].first_name 
           }]
-          console.log(Data)
+          console.log("graphdata",Data)
           this.chartData = Data;
-      
-        
-       
-        
       });
+      this.showGraph =  true
+
        //This clears the suggestion and search box;
       this.suggestions = null;
       this.input = '';
+
   }
 
   removePlayer(clickedIndex) {
+    this.route.navigate(['']);
+
     this.players = this.players.filter((element, index, array)=>{
-      return index !==  clickedIndex;
+     return  index !==  clickedIndex 
+
     });
+
+    
   }
 
 }
+
+
+
+
+
+
+
+// ppg;
+// reb;
+// ast;
+// games_played;
+// min;
+// fgm;
+// fga;
+// fg3m;
+// fg3a;
+// ftm;
+// fta;
+// oreb;
+// dreb;
+// stl;
+// blk;
+// pf;
+// fg_pct;
+// fg3_pct;
+// ft_pct;
+// turnover;
