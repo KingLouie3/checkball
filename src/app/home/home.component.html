@@ -69,8 +69,9 @@
 <div *ngFor="let player of _api.players; let i  = index">
   <div class="player-name">
 
-    {{player.first_name}} {{player.last_name}}
-
+    {{player.first_name}} {{player.last_name}}  {{player.season}}
+    <!-- <button (click)="prevSeason()"> Previous Season </button>
+    <button (click)="nextSeason()" > Next Season</button> -->
     </div>
 
 
@@ -133,5 +134,5 @@
 <!-- <button class="btn btn-success animation-on-hover" type="button" *ngIf="_api.showStats" (click)="seeGraph()">
   See
 Graph</button> -->
-<app-graph *ngIf="_api.showGraph"></app-graph>
+<!-- <app-graph *ngIf="_api.showGraph"></app-graph> -->
 

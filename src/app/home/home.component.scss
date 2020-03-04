@@ -59,7 +59,10 @@ button:focus {
 }
 
 .player-name {
-    width: 140px;
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    font-size: 1rem;
     float: left;
     margin-right: auto;
     background: -webkit-linear-gradient(#eee, #333);

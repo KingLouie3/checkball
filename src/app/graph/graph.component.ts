@@ -19,7 +19,7 @@ export class GraphComponent implements OnInit {
   chartLabels = ['Points', 'Rebounds', 'Assists', 'Steals'];
 
   onChartClick(event) {
-    console.log(event);
+    // console.log(event);
   } 
 constructor(public _api: BasketballApiService, private route: Router) {}
 
@@ -33,14 +33,14 @@ seeStats() {
 
   ngOnInit() {
     this._api.players.forEach(element => {
-      console.log('elements',element);
+      // console.log('elements',element);
       const Data = [{ data: [element.pts, element.reb, element.ast, element.stl], label: element.first_name}]
       this.chartData = Data
     });
     // const Data = {data:[ this._api.players.pts], label: 'Test'}
     // this.chartData.push(Data)
-    console.log("ChartData", this.chartData)
-    console.log('graphComponentTest', this._api.players)
+    // console.log("ChartData", this.chartData)
+    // console.log('graphComponentTest', this._api.players)
     
   }
 
