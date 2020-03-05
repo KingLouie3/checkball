@@ -71,6 +71,7 @@ nextSeason(){
       reqs.push(this._http.get<any>(`https://www.balldontlie.io/api/v1/season_averages?season=${i}&player_ids[]=${id}`));
     }
     forkJoin(reqs).subscribe(response => {
+      //forkJoin puts responses in order.
       // if(response.data.season !== null) {
       //   seasonsPlayed.push(response.data[0].season);
       // }
